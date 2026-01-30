@@ -1,0 +1,16 @@
+[Unit]
+Description=Hui Lv Server
+After=network.target
+
+[Service]
+# Working Directory - Config file should be here
+WorkingDirectory=/data/hui_lv
+# Path to executable
+ExecStart=/data/hui_lv/hui_lv_server_linux
+# Restart on crash
+Restart=always
+# Run as user (change if not root)
+User=root
+
+[Install]
+WantedBy=multi-user.target

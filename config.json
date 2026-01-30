@@ -1,0 +1,20 @@
+{
+    "database": {
+        "host": "localhost",
+        "port": "3306",
+        "user": "root",
+        "password": "123123",
+        "dbname": "huilv"
+    },
+    "server": {
+        "port": ":8080"
+    },
+    "tanshu": {
+        "api_key": "6944247b0374d3868e5b2118fac6497d",
+        "api_url": "https://api.tanshuapi.com/api"
+    },
+    "client": {
+        "show_ad": false,
+        "ad_unit_id": "adunit-xxxxxxxx"
+    }
+}
