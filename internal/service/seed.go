@@ -10,10 +10,10 @@ import (
 
 func Seed() {
 	log.Println("Seeding Banks and Currencies...")
-	seedBanks()
+	/*seedBanks()
 	seedBanks()
 	seedCurrencies()
-	seedAdmin()
+	seedAdmin()*/
 	log.Println("Seeding setup finished.")
 }
 
@@ -40,18 +40,18 @@ func seedAdmin() {
 
 func seedBanks() {
 	bankNames := map[string]string{
-		"ICBC":     "中国工商银行",
+		"ICBC":     "工商银行",
 		"BOC":      "中国银行",
-		"ABCHINA":  "中国农业银行",
+		"ABCHINA":  "农业银行",
 		"BANKCOMM": "交通银行",
-		"CCB":      "中国建设银行",
+		"CCB":      "建设银行",
 		"CMBCHINA": "招商银行",
 		"CEBBANK":  "中国光大银行",
 		"SPDB":     "上海浦东发展银行",
 		"CIB":      "兴业银行",
 		"ECITIC":   "中信银行",
-		"PSBC":     "中国邮政储蓄银行",
-		"CMBC":     "中国民生银行",
+		"PSBC":     "邮政储蓄银行",
+		"CMBC":     "民生银行",
 	}
 
 	for code, name := range bankNames {

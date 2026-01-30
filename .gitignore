@@ -33,3 +33,4 @@ logs/
 # Database
 *.db
 *.sqlite
+deploy/hui_lv_server_linux
