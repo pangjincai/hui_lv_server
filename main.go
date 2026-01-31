@@ -1,18 +1,39 @@
 package main
 
 import (
+	"flag"
 	"hui_lv_server/config"
 	"hui_lv_server/internal/api"
 	"hui_lv_server/internal/service"
 	"hui_lv_server/pkg/db"
+	"hui_lv_server/pkg/utils"
 	"log"
+	"time"
 
 	"github.com/gin-gonic/gin"
 	"github.com/robfig/cron/v3"
-	"time"
 )
 
 func main() {
+	// Parse command line flags
+	logPath := flag.String("log", "", "Base path for log file (e.g. ./logs/server)")
+	flag.Parse()
+
+	// Setup logging if path is provided
+	if *logPath != "" {
+		// Use custom DailyWriter for log rotation
+		writer := utils.NewDailyWriter(*logPath)
+		
+		// Set standard logger output
+		log.SetOutput(writer)
+		
+		// Set Gin's writer
+		gin.DefaultWriter = writer
+		
+		// Note: We don't defer Close() here effectively because main() runs forever
+		// until killed, and DailyWriter handles file closing/rotation internally.
+	}
+
 	// Set Timezone to Asia/Shanghai
 	loc, err := time.LoadLocation("Asia/Shanghai")
 	if err != nil {

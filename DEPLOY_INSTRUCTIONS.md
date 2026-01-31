@@ -34,6 +34,12 @@ systemctl start hui_lv
 systemctl status hui_lv
 ```
 
+The service is configured to output logs to `/data/logs/hui_lv_server_YYYY-MM-DD.log` (rotated daily, kept for 7 days). 
+You can view today's log with:
+```bash
+tail -f /data/logs/hui_lv_server_$(date +%F).log
+```
+
 ## 4. Setup Nginx
 Move the Nginx config and reload:
 ```bash
